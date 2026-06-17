@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-robot-control"
+version = "0.1.0"
+description = "Offline voice command recognition prototype for robot control."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.7",
+    "pyyaml>=6.0",
+    "rich>=13.7",
+    "sounddevice>=0.4",
+    "typer>=0.12",
+    "vosk>=0.3",
+    "pyserial>=3.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.10",
+    "pytest>=8.2",
+    "ruff>=0.5",
+    "types-PyYAML>=6.0",
+    "types-pyserial>=3.5",
+]
+
+[project.scripts]
+voice-robot = "voice_robot_control.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+warn_return_any = true
+disallow_untyped_defs = true
+exclude = [".venv"]
+
+[[tool.mypy.overrides]]
+module = ["sounddevice", "vosk"]
+ignore_missing_imports = true

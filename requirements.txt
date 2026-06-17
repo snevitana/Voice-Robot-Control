@@ -1,0 +1,7 @@
+vosk
+sounddevice
+pydantic
+pyyaml
+typer
+rich
+pyserial

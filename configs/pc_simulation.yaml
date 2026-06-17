@@ -1,0 +1,45 @@
+vosk_model_path: "models/vosk-model-small-ru-0.22"
+sample_rate: 16000
+audio_block_size: 8000
+backend: "simulation"
+log_level: "INFO"
+
+commands:
+  MOVE_FORWARD:
+    - "вперед"
+    - "едь вперед"
+    - "поезжай вперед"
+    - "двигайся вперед"
+  MOVE_BACKWARD:
+    - "назад"
+    - "едь назад"
+    - "поезжай назад"
+    - "двигайся назад"
+  TURN_LEFT:
+    - "налево"
+    - "поверни налево"
+    - "едь налево"
+  TURN_RIGHT:
+    - "направо"
+    - "поверни направо"
+    - "едь направо"
+  STOP:
+    - "стоп"
+    - "остановись"
+    - "стой"
+  SPEED_UP:
+    - "быстрее"
+    - "ускорься"
+  SLOW_DOWN:
+    - "медленнее"
+    - "замедлись"
+
+serial:
+  port: "/dev/ttyUSB0"
+  baudrate: 9600
+  timeout: 1.0
+
+tcp:
+  host: "127.0.0.1"
+  port: 9000
+  timeout: 2.0
